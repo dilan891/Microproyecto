@@ -1,0 +1,4 @@
+.list_item {
+    width: calc(25% - 10px); /* 4 elementos por fila */
+    margin-bottom: 20px;
+  }

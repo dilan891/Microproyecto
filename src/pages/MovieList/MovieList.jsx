@@ -1,57 +1,20 @@
-import { MovieCard } from "../../components/MovieCard/MovieCard";
-import { useEffect, useState } from "react";
+import { Loading } from "../../components/Loading/Loading";
+import { useFinder } from "../../hooks/useFinder";
+
 import lupa from "../../assets/lupa.svg";
 import derecha from "../../assets/flecha-derecha.svg";
 import izquierda from "../../assets/flecha-izquierda.svg";
 import style from "./MovieList.module.css";
-import { async } from "@firebase/util";
+import { MovieListView } from "../../components/MovieListView/MovVieListView";
+
 
 export function MovieList() {
-    const [peliculas, setPeliculas] = useState([])
-    const [search, setSearch] = useState("")
-    const [pagina, setPagina] = useState(1)
-    const [filtro, setFiltro] = useState("popular")
-
-    let apiPopular = "https://api.themoviedb.org/3/movie/popular?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
-    let apiTopRated = ""
-    let uncoming = ""
+    const {peliculas,search,pagina,filtro,setSearch,setPagina,findMovie,setFiltro} = useFinder()
 
     const handleFilter = (e) => {
         setFiltro(e.target.name)
         setPagina(1)
         console.log(filtro)
-    }
-
-    const fetchMovies = () => {
-        switch (filtro) {
-            case "popular":
-                fetch(apiPopular)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data)
-                        setPeliculas(data.results)
-                    })
-                break;
-            case "topRate":
-                fetch(apiTopRated)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data)
-                        setPeliculas(data.results)
-                    }
-                    )
-                break;
-            case "uncoming":
-                fetch(uncoming)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data)
-                        setPeliculas(data.results)
-                    }
-                    )
-                break;
-            
-        }
     }
 
     const changePage = (move) => {
@@ -67,27 +30,11 @@ export function MovieList() {
         }
     }
 
-    const findMovie = (e) => {
-        const apiSearch = "https://api.themoviedb.org/3/search/movie?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=1&include_adult=false&query=" + search
-        fetch(apiSearch)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                setPeliculas(data.results)
-            })
-    }
-
-    useEffect(() => {
-        apiPopular = "https://api.themoviedb.org/3/movie/popular?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
-        apiTopRated = "https://api.themoviedb.org/3/movie/top_rated?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
-        uncoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
-        fetchMovies()
-    }, [pagina, filtro])
-
     return (
         <div className={style.content}>
+            
             <div className={style.title}>
-                <h1 className={style.titleContent}>Lista de peliculas</h1>
+                <h1 className={style.titleContent}>Lista de películas</h1>
             </div>
             <div className={style.fila}>
                 <div className={style.filtroTitle}>
@@ -110,13 +57,7 @@ export function MovieList() {
                 <input className={style.input} value={search} onChange={(e) => setSearch(e.target.value)} type="text" />
             </div>
             <ul className={style.list}>
-                {peliculas.map((pelicula) => {
-                    return (
-                        <li className={style.list_item} key={pelicula.id}>
-                            <MovieCard title={pelicula.title} release_date={pelicula.release_date} img={pelicula.poster_path}/>
-                        </li>
-                    )
-                })}
+                {(peliculas.length === 0)? <Loading /> : <MovieListView peliculas={peliculas} />}
             </ul>
             <div className={style.filaCenter}>
                 <div onClick={()=>changePage("back")} className={style.flecha}><img className={style.flecha} src={izquierda} alt="back"  /></div>
