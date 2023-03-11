@@ -1,5 +1,19 @@
+import {MovieCard} from "../../components/MovieCard/MovieCard";
+
 export function MovieList() {
+
+
+
     return(
-        <div></div>
+        <>
+            <ul>
+                <li>
+                    <MovieCard />
+                </li>
+                <li>
+                    <MovieCard />
+                </li>
+            </ul>
+        </>
     )
 }
