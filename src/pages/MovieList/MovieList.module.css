@@ -1,3 +1,134 @@
-/* .p {
-    font-size: 50px;
-} */
+*{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.titleContent{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    width: 100%;
+}
+
+.fila{
+    display: flex;
+    flex-direction: row;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list_item {
+    width: calc(25% - 10px); /* 4 elementos por fila */
+    margin-bottom: 20px;
+  }
+
+.filaCenter{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 20px;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    list-style: none;
+}
+
+button{
+    margin: 0;
+    padding: 0;background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.button{
+    background-color: #0a2b0b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.button:hover{
+    background-color: #063108;
+    border: none;
+    color: rgb(250, 82, 82);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.centerN{
+    width: auto;
+    margin: 5px;
+    align-self: center;
+}
+
+.buscar{
+    background-color: #0a2b0b;
+    border: none;
+    height: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px 0 0 10px;
+}
+
+.filtroTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    border: none;
+    height: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    outline: 0;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 0 10px 10px 0;
+}
+
+.flecha{
+    cursor: pointer;
+    width: 25px;
+}
