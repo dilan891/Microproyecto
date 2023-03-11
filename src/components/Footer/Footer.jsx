@@ -20,18 +20,18 @@ export function Footer() {
         <footer className={styles.container}>
             <div className={styles.socialMedia}>
                 <h1 className={styles.subtitle}>Redes Sociales</h1>
-                <ul className={styles.list}>
+                <ul className={styles.listMedia}>
                     <li className={styles.items}>
-
+                        <a href="https://www.instagram.com/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
                     </li>
                     <li className={styles.items}>
-                        
+                        <a href="https://www.facebook.com/" target="_blank"><i className="fa-brands fa-facebook"></i></a>
                     </li>
                     <li className={styles.items}>
-                        
+                    <a href="https://twitter.com/" target="_blank"><i className="fa-brands fa-twitter"></i></a>
                     </li>
                     <li className={styles.items}>
-                        
+                    <a href="https://web.telegram.org/z/" target="_blank"><i className="fa-brands fa-telegram"></i></a>
                     </li>
                     <li className={styles.items}>
                         
@@ -42,7 +42,7 @@ export function Footer() {
                 </ul>
             </div>
             <div className={styles.location}>
-                <h1 className={styles.subtitle}>Mi Ubicación</h1>
+                <h1 className={styles.subtitle}>Sede</h1>
                 <p className={styles.info}>Caracas, Venezuela</p>
             </div>
             <div className={styles.winodws}>

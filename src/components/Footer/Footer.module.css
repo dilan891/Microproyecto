@@ -19,6 +19,14 @@ footer{
     padding: 15px 0 0 35px;
 }
 
+.listMedia {
+    display: flex;
+}
+
+i{
+    color: white;
+}
+
 .location .subtitle {
     padding: 0;
 }
@@ -27,6 +35,7 @@ footer{
     list-style: none;
     cursor: pointer;
     position: relative;
+    padding: 0 10px;
 }
 
 p {

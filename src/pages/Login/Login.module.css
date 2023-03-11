@@ -1,8 +1,11 @@
 .container {
     background: #0D1117;
+    margin: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
 .form {
@@ -26,13 +29,12 @@
 }
 
 img {
-    /* display: flex; */
     width: 100%;
     height: 100%;
 }
 
 .formContainer {
-    padding: 50px 150px 50px 150px;
+    padding: 50px 50px;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -61,11 +63,12 @@ img {
     display: block;
     width: 100%;
     height: 44px;
-    border-radius: 8px;
+    border: none;
+    border-bottom: 1px solid #181b20;
+    background: transparent;
+    outline: none;
     font-size: 16px;
     font-weight: 400;
-    background-color: #fff;
-    border: 1px solid #d0d5dd;
     margin-bottom: 20px;
 }
 
@@ -79,8 +82,7 @@ img {
   outline: none;
   border: none;
   height: 44px;
-  background: #181b20;
-  border: 1px solid #181b20;
+  background: linear-gradient(45deg, rgb(11, 137, 234), rgb(34, 34, 121));
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
   font-weight: 600;
@@ -94,8 +96,8 @@ img {
 
 .form .submitBtn:hover,
 .form .googleBtn:hover {
-  background: rgb(58, 174, 58);
-  border: 1px solid rgb(58, 174, 58);
+  background: linear-gradient(45deg, rgb(26, 156, 14), rgb(14, 95, 156));
+  color: white;
 }
 
 .form .googleBtn {

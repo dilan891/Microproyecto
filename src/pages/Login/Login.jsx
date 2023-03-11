@@ -44,7 +44,7 @@ export function Login() {
         <div className={styles.container}>
             <form className={styles.form} onSubmit={onSubmit}>
                 <div className={styles.imgContainer}>
-                    <img src="https://wallpaperbat.com/img/288302-movie-posters-wallpaper.jpg" alt="" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/microproyecyo.appspot.com/o/Image%202.jpg?alt=media&token=b14aa1e8-9f6c-4680-b81d-fcf6cc3d9986" alt="" />
                 </div>
                 <div className={styles.formContainer}>
                     <div>
