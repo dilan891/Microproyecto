@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import lupa from "../../assets/lupa.svg";
 import derecha from "../../assets/flecha-derecha.svg";
 import izquierda from "../../assets/flecha-izquierda.svg";
-import Style from "./MovieList.module.css";
+import style from "./MovieList.module.css";
+import { async } from "@firebase/util";
 
 export function MovieList() {
     const [peliculas, setPeliculas] = useState([])
@@ -13,10 +14,12 @@ export function MovieList() {
 
     let apiPopular = "https://api.themoviedb.org/3/movie/popular?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
     let apiTopRated = ""
+    let uncoming = ""
 
     const handleFilter = (e) => {
         setFiltro(e.target.name)
-        fetchMovies()
+        setPagina(1)
+        console.log(filtro)
     }
 
     const fetchMovies = () => {
@@ -37,6 +40,17 @@ export function MovieList() {
                         setPeliculas(data.results)
                     }
                     )
+                break;
+            case "uncoming":
+                fetch(uncoming)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        setPeliculas(data.results)
+                    }
+                    )
+                break;
+            
         }
     }
 
@@ -66,44 +80,48 @@ export function MovieList() {
     useEffect(() => {
         apiPopular = "https://api.themoviedb.org/3/movie/popular?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
         apiTopRated = "https://api.themoviedb.org/3/movie/top_rated?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
+        uncoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=" + pagina
         fetchMovies()
-    }, [pagina])
+    }, [pagina, filtro])
 
     return (
-        <div className="m-3">
-            <div className="w-full justify-center">
-                <h1 className="text-3xl mb-4 self-center w-full">Lista de peliculas</h1>
+        <div className={style.content}>
+            <div className={style.title}>
+                <h1 className={style.titleContent}>Lista de peliculas</h1>
             </div>
-            <div className="flex flex-row">
-                <div className="justify-center self-center h-full">
+            <div className={style.fila}>
+                <div className={style.filtroTitle}>
                     Filtro:
                 </div>
-                <ul className="flex flex-row ml-1">
-                    <li className="ml-2 bg-lime-900 rounded p-1 hover:bg-lime-800">
-                        <button name="popular" onClick={handleFilter}>Populares</button>
+                <ul className={style.filtros}>
+                    <li>
+                        <button className={style.button} name="popular" onClick={handleFilter}>Populares</button>
                     </li>
-                    <li className="ml-2 bg-lime-900 rounded p-1 hover:bg-lime-800">
-                        <button name="topRate" onClick={handleFilter}>Mejor valoradas</button>
+                    <li>
+                        <button className={style.button} name="topRate" onClick={handleFilter}>Mejor valoradas</button>
+                    </li>
+                    <li>
+                        <button className={style.button} name="uncoming" onClick={handleFilter}>Proximamente</button>
                     </li>
                 </ul>
             </div>
-            <div className="flex flex-row justify-center">
-                <div className="bg-green-900 p-3 h-full rounded-l-lg hover:cursor-pointer" onClick={findMovie}><img src={lupa} alt="Buscar" width={15} /></div>
-                <input className="text-black p-1 rounded-r-lg outline-0 w-96" value={search} onChange={(e) => setSearch(e.target.value)} type="text" />
+            <div className={style.filaCenter}>
+                <div className={style.buscar} onClick={findMovie}><img src={lupa} alt="Buscar" width={15} /></div>
+                <input className={style.input} value={search} onChange={(e) => setSearch(e.target.value)} type="text" />
             </div>
-            <ul>
+            <ul className={style.list}>
                 {peliculas.map((pelicula) => {
                     return (
-                        <li key={pelicula.id}>
-                            <MovieCard />
+                        <li className={style.list_item} key={pelicula.id}>
+                            <MovieCard title={pelicula.title} release_date={pelicula.release_date} img={pelicula.poster_path}/>
                         </li>
                     )
                 })}
             </ul>
-            <div className="flex justify-center">
-                <div onClick={()=>changePage("back")} className="hover:cursor-pointer ml-1 mr-1 w-5"><img src={izquierda} alt="back"  /></div>
-                <div>{pagina}</div>
-                <div onClick={()=>changePage("next")} className="hover:cursor-pointer ml-1 mr-1 w-5"><img src={derecha} alt="next" /></div>
+            <div className={style.filaCenter}>
+                <div onClick={()=>changePage("back")} className={style.flecha}><img className={style.flecha} src={izquierda} alt="back"  /></div>
+                <div className={style.centerN}>{pagina}</div>
+                <div onClick={()=>changePage("next")} className={style.flecha}><img className={style.flecha} src={derecha} alt="next" /></div>
             </div>
         </div>
     )
