@@ -43,6 +43,7 @@ export function Navbar() {
     }, [])
 
     return (
+                
             <nav>
                 <Link to={HOME_URL}>
                     <h1>Movie+</h1> 
@@ -51,29 +52,14 @@ export function Navbar() {
                     <ul className={styles.list}>
                     {!!user ? (
                         <>
+                        
                         {(toggleMenu || screenWidth > 650) && (
-                            <ul>
+                            <ul className={styles.list} id={styles.list}>
                                 <li className={styles.items}>
-                                    <Link to={SKILLS_URL}>
-                                        <span>Habilidades</span>
+                                    <Link to={MOVIELIST_URL}>
+                                        <span>Películas</span>
                                     </Link>
                                 </li>
-                                <li className={styles.items}>
-                                    <Link to={PROJECTS_URL}>
-                                        <span>Proyectos</span>
-                                    </Link>
-                                </li>
-                                <li className={styles.items}>
-                                    <Link to={BLOGS_URL}>
-                                        <span>Blogs</span>
-                                    </Link>
-                                </li>
-                                <li className={styles.items}>
-                                    <Link to={CONTACTME_URL}>
-                                        <span>Contáctame</span>
-                                    </Link>
-                                </li>
-
                                 <li className={styles.items}>
                                     <Link to={PROFILE_URL}>
                                     <div className={styles.userAvatar} />
@@ -92,8 +78,9 @@ export function Navbar() {
                         </>
                     ) : (
                         <>
+                        
                         {(toggleMenu || screenWidth > 650) && (
-                        <ul className={styles.list}>
+                        <ul className={styles.list} id={styles.list}>
                             <li className={styles.items}>
                                 <Link to={HOME_URL}>
                                     <span>Inicio</span>
@@ -111,7 +98,6 @@ export function Navbar() {
                             </li>
                         </ul>
                         )}
-                        
                         </>
                     )}
                     </ul>
@@ -122,5 +108,5 @@ export function Navbar() {
                 </div>
                             
             </nav>
-          )
+    )
 }
