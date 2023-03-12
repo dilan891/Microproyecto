@@ -32,7 +32,6 @@ export function MovieList() {
 
     return (
         <div className={style.content}>
-            
             <div className={style.title}>
                 <h1 className={style.titleContent}>Lista de películas</h1>
             </div>
