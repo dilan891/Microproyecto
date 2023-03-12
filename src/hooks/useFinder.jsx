@@ -38,12 +38,15 @@ export function useFinder() {
                     }
                     )
                 break;
+            default:
+                break;
             
         }
     }
 
     const findMovie = (e) => {
         setPeliculas([])
+        setFiltro("search")
         const apiSearch = "https://api.themoviedb.org/3/search/movie?api_key=07c667a57e6c3db002cddc4b9fe4efaf&language=en-US&page=1&include_adult=false&query=" + search
         fetch(apiSearch)
             .then(response => response.json())

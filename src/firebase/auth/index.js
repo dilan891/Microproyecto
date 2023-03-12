@@ -18,15 +18,17 @@ export const signInWithGoogle = async ({ onSuccess, onFail }) => {
             const { uid, email, displayName } = result.user;
             await createUser({
                 uid,
-                email,
+                email:email,
                 name: displayName,
                 age: "",
             });
         }
-  
-        if (onSuccess) {
+
+         if (onSuccess) {
             onSuccess();
         }
+
+        return result;   
     } catch (error) {
         const errorCode = error?.code;
         const errorMessage = error?.message;
@@ -58,14 +60,16 @@ export const registerWithEmailAndPassword = async ({
             email,
             password
         );
-  
+        
         await createUser({
             ...restData,
+            name: restData.displayName,
             email,
             uid: firebaseResult.user.uid,
         });
-  
+        
         if (onSuccess) {
+            console.log("firebaseResult", firebaseResult)
             onSuccess();
         }
     } catch (error) {

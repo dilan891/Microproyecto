@@ -1,5 +1,6 @@
 import { Loading } from "../../components/Loading/Loading";
 import { useFinder } from "../../hooks/useFinder";
+import { useState } from "react";
 
 import lupa from "../../assets/lupa.svg";
 import derecha from "../../assets/flecha-derecha.svg";
@@ -9,17 +10,14 @@ import { MovieListView } from "../../components/MovieListView/MovVieListView";
 
 
 export function MovieList() {
-    const {peliculas,search,pagina,filtro,setSearch,setPagina,findMovie,setFiltro} = useFinder()
+    const {peliculas,search,pagina,setSearch,setPagina,findMovie,setFiltro} = useFinder()
 
     const handleFilter = (e) => {
         setFiltro(e.target.name)
         setPagina(1)
-        console.log(filtro)
     }
 
     const changePage = (move) => {
-        console.log(pagina)
-        console.log(move)
         if(pagina === 1 && move === "back") {
             return
         }
@@ -32,13 +30,12 @@ export function MovieList() {
 
     return (
         <div className={style.content}>
-            
             <div className={style.title}>
                 <h1 className={style.titleContent}>Lista de películas</h1>
             </div>
             <div className={style.fila}>
                 <div className={style.filtroTitle}>
-                    Filtro:
+                    Filtros:
                 </div>
                 <ul className={style.filtros}>
                     <li>

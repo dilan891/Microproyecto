@@ -7,35 +7,33 @@ export const UserContext = React.createContext();
 
 export function UserContextProvider({ children }) {
     const [user, setUser] = useState(null);
-    const [isLoadingUser, setIsLoadingUser] = useState(true);
+    const [isLoadingUser, setIsLoadingUser] = useState(false);
 
     useEffect(() => {
         onAuthStateChanged(auth, async (firebaseUser) => {
-        setIsLoadingUser(true);
-        if (firebaseUser && !user) {
-            const userProfile = await getUserProfile(firebaseUser.email);
-
-            setUser(userProfile);
-        } else {
-            setUser(null);
-        }
-
-        setIsLoadingUser(false);
+            setIsLoadingUser(true);
+            if (firebaseUser) {
+                setUser(firebaseUser);
+                console.log(firebaseUser);
+            } else {
+                setUser(null);
+            }
+            setIsLoadingUser(false);
         });
     }, []);
 
     return (
         <UserContext.Provider
-        value={{
-            user,
-            setUser,
-            isLoadingUser,
-            setIsLoadingUser,
-        }}
+            value={{
+                user,
+                setUser,
+                isLoadingUser,
+                setIsLoadingUser,
+            }}
         >
             {children}
         </UserContext.Provider>
-  );
+    );
 }
 
 export function useUserContext() {
