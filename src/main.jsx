@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import './index.css'
 import { 
   HOME_URL,
   LOGIN_URL,
@@ -17,7 +16,7 @@ import { Layout } from "../src/pages/Layout/Layout";
 import { NotFound } from "../src/pages/NotFound/NotFound";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { PublicRoute } from "../src/components/PublicRoute/PublicRoute"
-import { PrivateRoute } from "../src/components/PrivateRoute/PrivateRoute"
+// import { PrivateRoute } from "../src/components/PrivateRoute/PrivateRoute"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

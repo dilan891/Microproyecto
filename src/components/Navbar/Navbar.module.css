@@ -94,8 +94,6 @@ nav h1 {
         transition: 0.3s ease-in-out;
         margin: 0;
         place-items: left;
-        /* min-width: 50%;
-        min-height: 100vh; */
         z-index: 1 !important;
     }
 
