@@ -1,4 +1,5 @@
 import {MovieCard} from "../../components/MovieCard/MovieCard";
+import {MovieCardDetails} from "../../components/MovieCardDetails/MovieCardDetails";
 
 export function MovieList() {
 
@@ -12,6 +13,9 @@ export function MovieList() {
                 </li>
                 <li>
                     <MovieCard />
+                </li>
+                <li>
+                    <MovieCardDetails />
                 </li>
             </ul>
         </>
