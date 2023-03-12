@@ -1,6 +1,7 @@
 .card {
   width: 100%;
   border-radius: 15px;
+  background-color: black;
 }
 
 .text {
@@ -19,7 +20,7 @@
 .subTitle {
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(58, 174, 58);
+    color: rgb(109, 223, 109);
 }
 
 * {
@@ -71,3 +72,89 @@
   border-radius: 5px;
   background-color: rgb(58, 174, 58);
 }
+ 
+.icon { 
+  color: rgb(16, 189, 16);
+  font-size: 30px;
+}
+
+.icon2 {
+  color: rgb(177, 217, 65);
+  font-size: 30px;
+}
+
+.icon3 {
+  color: rgb(223, 226, 48);
+  font-size: 30px;
+}
+
+.icon4 {
+  color: rgb(230, 146, 20);
+  font-size: 30px;
+}
+
+.icon5 {
+  color: rgb(230, 20, 20);
+  font-size: 30px;
+}
+
+.icon6 {
+  color: rgb(170, 170, 170);
+  font-size: 30px;
+}
+
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 100%;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+.container2 {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.container2 img {
+  vertical-align: middle;
+  width:100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
