@@ -22,7 +22,7 @@ export function MovieListView(Props){
 
     return (
         <>  
-            <ModalView modal={modal} idMovie={idMovie}/>
+            <ModalView modal={modal} close={handleModal} idMovie={idMovie}/>
             {peliculas.map((pelicula) => {
                     return (
                         <li className={styled.list_item} key={pelicula.id}>

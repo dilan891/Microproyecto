@@ -9,13 +9,13 @@ export function ModalView(Props) {
     useEffect(() => {
         setIdMovies(Props.idMovie)
     }, [Props.modal,Props.idMovie])
-    
+
     if (!Props.modal) return null
 
     else {
         return (
             <div id={styled.modal} className={styled.modal}>
-                <MovieCardDetails movie={movie}/>
+                <MovieCardDetails movie={movie} close={Props.close}/>
             </div>
         )
     }
