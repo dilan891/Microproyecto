@@ -11,6 +11,7 @@ export function PrivateRoute({ children }) {
     }
 
     if (!isLoadingUser && !user) {
+        console.log(user);
         return <Navigate to={LOGIN_URL} />;
     }
 

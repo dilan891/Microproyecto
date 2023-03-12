@@ -67,7 +67,7 @@ export function Navbar() {
                                 </li>
                                 <li className={styles.items}>
                                     <Link to={PROFILE_URL}>
-                                    <span className={styles.userName}>{user.name}</span>
+                                    <span className={styles.userName}>{user.displayName}</span>
                                     </Link>
                                 </li>
                                 <li className={styles.items}>

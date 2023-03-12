@@ -12,6 +12,7 @@ export function Register() {
     const [formData, setData] = useState({});
 
     const onSuccess = () => {
+        console.log("REGISTER SUCCESS");
         navigate(MOVIELIST_URL);
     };
 
@@ -21,7 +22,7 @@ export function Register() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        console.log(formData);
         await registerWithEmailAndPassword({
         userData: formData,
         onSuccess,
@@ -58,7 +59,7 @@ export function Register() {
                     </div>
                     <div className={styles.input}>
                         <label htmlFor="name"><span>Ingrese su nombre completo</span></label>
-                        <input type="name" name="name" id="name" placeholder="Juan Pérez" onChange={onChange}/>
+                        <input type="name" name="displayName" id="name" placeholder="Juan Pérez" onChange={onChange}/>
                     </div>
                     <div className={styles.input}>
                         <label htmlFor="email"><span>Ingrese su correo</span></label>
