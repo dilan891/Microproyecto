@@ -1,5 +1,6 @@
 import { Loading } from "../../components/Loading/Loading";
 import { useFinder } from "../../hooks/useFinder";
+import { useState } from "react";
 
 import lupa from "../../assets/lupa.svg";
 import derecha from "../../assets/flecha-derecha.svg";
@@ -9,17 +10,14 @@ import { MovieListView } from "../../components/MovieListView/MovVieListView";
 
 
 export function MovieList() {
-    const {peliculas,search,pagina,filtro,setSearch,setPagina,findMovie,setFiltro} = useFinder()
+    const {peliculas,search,pagina,setSearch,setPagina,findMovie,setFiltro} = useFinder()
 
     const handleFilter = (e) => {
         setFiltro(e.target.name)
         setPagina(1)
-        console.log(filtro)
     }
 
     const changePage = (move) => {
-        console.log(pagina)
-        console.log(move)
         if(pagina === 1 && move === "back") {
             return
         }
@@ -37,7 +35,7 @@ export function MovieList() {
             </div>
             <div className={style.fila}>
                 <div className={style.filtroTitle}>
-                    Filtro:
+                    Filtros:
                 </div>
                 <ul className={style.filtros}>
                     <li>
@@ -52,9 +50,12 @@ export function MovieList() {
                 </ul>
             </div>
             <div className={style.filaCenter}>
-                <div className={style.buscar} onClick={findMovie}><img src={lupa} alt="Buscar" width={15} /></div>
+                <div className={style.buscar} onClick={findMovie}>
+                    <img src={lupa} width={25} className={style.svg}/>
+                </div>
                 <input className={style.input} value={search} onChange={(e) => setSearch(e.target.value)} type="text" />
             </div>
+  
             <ul className={style.list}>
                 {(peliculas.length === 0)? <Loading /> : <MovieListView peliculas={peliculas} />}
             </ul>
