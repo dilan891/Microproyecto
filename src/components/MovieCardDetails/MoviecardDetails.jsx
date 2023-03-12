@@ -64,7 +64,7 @@ export function MovieCardDetails(Props) {
               <h2 className={styled.subTitle}>Lenguaje Original</h2>
               <p className={styled.text}>{selectLenguaje(movie.original_language)}</p>
               <h2 className={styled.subTitle}>Presupuesto</h2>
-              <p className={styled.text}>{movie.budget}$</p>
+              <p className={styled.text}>{(movie.budget == 0)?<>no disponible</>:movie.budget+"$"}</p>
               <h2 className={styled.subTitle}>Compañías de Producción</h2>
               <p className={styled.text}>{(!movie.production_companies)?null:movie.production_companies.map((companie)=>{
                 return(

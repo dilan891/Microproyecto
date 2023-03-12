@@ -14,7 +14,7 @@ import { logout } from "../../firebase/auth";
 export function Navbar() {
 
     const navigate = useNavigate();
-    const { user, isLoadingUser } = useUserContext();
+    const { user, isLoadingUser,name } = useUserContext();
 
     const handleLogout = async () => {
         await logout(() => navigate(HOME_URL));
@@ -40,7 +40,7 @@ export function Navbar() {
         window.removeEventListener('resize', changeWidth)
     }
 
-    }, [])
+    }, [name])
 
     return (
                 
@@ -67,7 +67,7 @@ export function Navbar() {
                                 </li>
                                 <li className={styles.items}>
                                     <Link to={PROFILE_URL}>
-                                    <span className={styles.userName}>{(user.name)?user.name:user.displayName}</span>
+                                    <span className={styles.userName}>{(user.displayName == null)?name:user.displayName}</span>
                                     </Link>
                                 </li>
                                 <li className={styles.items}>
