@@ -16,11 +16,20 @@ footer{
     font-size: 15px;
     font-weight: 800;
     color: white;
-    padding: 15px 0 0 35px;
+    padding: 15px 0 0 25px;
 }
 
 .listMedia {
     display: flex;
+    padding: 0 12px;
+}
+
+.location {
+    padding: 0 12px;
+} 
+
+.list {
+    padding: 0 12px;
 }
 
 i{
@@ -63,4 +72,30 @@ p {
     position: absolute;
     bottom: -4px;
     left: 20px;
+}
+
+@media screen and (max-width: 650px) {
+    footer{
+        padding: 10px 100px 10px 10px;
+    }
+    
+    .subtitle {
+        font-size: 12px;
+        padding: 10px 0 0 25px;
+    }
+    
+    .items {
+        padding: 0 5px;
+    }
+    
+    p {
+        font-size: 10px;
+    }
+    
+    .items span {
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
 }

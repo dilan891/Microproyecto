@@ -16,6 +16,8 @@ import { Profile } from "../src/pages/Profile/Profile";
 import { Layout } from "../src/pages/Layout/Layout";
 import { NotFound } from "../src/pages/NotFound/NotFound";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { PublicRoute } from "../src/components/PublicRoute/PublicRoute"
+import { PrivateRoute } from "../src/components/PrivateRoute/PrivateRoute"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -26,7 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path={MOVIELIST_URL} element={<MovieList />} />
             <Route path={PROFILE_URL} element={<Profile />} />
           </Route>
-          <Route path={LOGIN_URL} element={<Login />} />
+          <Route path={LOGIN_URL} element={<Login />}/>
           <Route path={REGISTER_URL} element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
