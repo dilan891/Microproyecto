@@ -8,11 +8,19 @@
     min-height: 100vh;
 }
 
+input{
+    color: black !important;
+}
+
 .form {
     width: 1000px;
     height: 550px;
     background: #fff;
     display: flex;
+}
+
+.input{
+    color: black;
 }
 
 .imgContainer {
