@@ -5,7 +5,7 @@ export function MovieCardDetails() {
     return(
         <form>
 
-<div class={styled.card}>
+<div className={styled.card}>
 <div className={styled.container}>
 <img className={styled.imagen} src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6jOpyXVzQyYL4QB12VRpHUxdwg1.jpg"/>
   <div class="overflow-auto ..." className={styled.content}><div class="overflow-auto ..."></div>
@@ -13,7 +13,7 @@ export function MovieCardDetails() {
   <h2 className={styled.subTitle}>Géneros</h2>
   <p className={styled.text}>Drama</p>
   <h2 className={styled.subTitle}>Descripción</h2>
-  <p className={styled.text}>Después de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violencia, una mujer pone en marcha un plan de venganza cuidadosamente planeado.</p>
+  <p className={styled.description}>Después de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violen de una infancia marcada por el dolor y la violencia, una mujer pone en marcha un plan de venganza cuidadosamente planeado.</p>
   <h2 className={styled.subTitle}>Lenguaje Original</h2>
   <p className={styled.text}>Coreano</p>
   <h2 className={styled.subTitle}>Presupuesto</h2>
