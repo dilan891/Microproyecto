@@ -1,5 +1,5 @@
 import styles from "../Home/Home.module.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import { UncontrolledCarousel } from 'reactstrap';
 
@@ -8,11 +8,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 
 export function Home() {
+
        return(
               <>
                      <div className={styles.container}>
                             <div className={styles.imgContainer}>
-                                   <img src="https://firebasestorage.googleapis.com/v0/b/microproyecyo.appspot.com/o/Img.jpg?alt=media&token=83374825-4bf5-4b34-a17f-adbec05bb76c" alt="" />
+                                   <div className={styles.image}>
+                                          <img src="https://firebasestorage.googleapis.com/v0/b/microproyecyo.appspot.com/o/Img.jpg?alt=media&token=83374825-4bf5-4b34-a17f-adbec05bb76c" alt="Image" className={styles.image1}/>
+                                          <img src="https://firebasestorage.googleapis.com/v0/b/microproyecyo.appspot.com/o/Image%203.png?alt=media&token=73847f3a-eb54-45d2-b0a1-69f45006e210" alt="Image" className={styles.image2}/>
+                                   </div>
                                    <div className={styles.welcome}>
                                           <h1>BIENVENIDO A MOVIE+</h1>
                                    </div>
@@ -24,6 +28,7 @@ export function Home() {
               </>
        )
 }
+
 
 
 // const imageData = [

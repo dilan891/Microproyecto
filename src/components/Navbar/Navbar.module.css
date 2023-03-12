@@ -6,7 +6,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background: #0D1117; */
+    position: relative;
     padding: 20px 50px;
     box-shadow: 00 5px 15px rgba(0, 0, 0, 0.06);
     background: linear-gradient(75deg, rgb(26, 156, 14), rgb(14, 95, 156));
@@ -87,11 +87,14 @@ nav h1 {
         top: 81px;
         right: 0%;
         width: 50%;
-        height: 100vh;
+        height: 100%;
         background: linear-gradient(75deg, rgb(26, 156, 14), rgb(14, 95, 156));
         box-shadow: 0 20px 30px rgb(61, 97, 60);
         padding: 40px 0 0 10px;
         transition: 0.3s ease-in-out;
+        margin: 0;
+        place-items: left;
+        z-index: 1 !important;
     }
 
     .items {

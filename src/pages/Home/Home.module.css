@@ -22,7 +22,17 @@
     transform: translate(-50%, -50%);
 }
 
-img {
+/* img {
+    opacity: 50%;
+    width: 100%;
+} */
+
+.image img{
+    display: none;
+}
+
+.image .image1 {
+    display: block;
     opacity: 50%;
 }
 
@@ -40,16 +50,35 @@ h2 {
 }
 
 @media (max-width: 750px){
-    img {
-        height: 100%;
-        width: auto;
+    .image .image2 {
+        display: block;
+        opacity: 50%;
     }
-    
+
+    .image .image1 {
+        display: none;
+    }
+
     h1 {
         font-size: 20px;
+        /* padding: 40px; */
     }
-    
+
     h2 {
         font-size: 12px;
+    }
+
+    .welcome {
+        top: 25%;
+        left: 50%;
+        padding-top: 50px;
+        
+    }
+
+    .info {
+        top: 60%;
+        left: 50%;
+        padding-top: 15px;
+
     }
 }

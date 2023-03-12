@@ -12,6 +12,7 @@ export function Register() {
     const [formData, setData] = useState({});
 
     const onSuccess = () => {
+        console.log("REGISTER SUCCESS");
         navigate(MOVIELIST_URL);
     };
 
@@ -21,7 +22,7 @@ export function Register() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        console.log(formData);
         await registerWithEmailAndPassword({
         userData: formData,
         onSuccess,
@@ -45,7 +46,7 @@ export function Register() {
         <div className={styles.container}>
             <form className={styles.form}>
                 <div className={styles.imgContainer}>
-                    <img src="https://wallpaperbat.com/img/288302-movie-posters-wallpaper.jpg" alt="" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/microproyecyo.appspot.com/o/Image%202.jpg?alt=media&token=b14aa1e8-9f6c-4680-b81d-fcf6cc3d9986" alt="" />
                 </div>
                 <div className={styles.formContainer}>
                     <div>
@@ -58,7 +59,7 @@ export function Register() {
                     </div>
                     <div className={styles.input}>
                         <label htmlFor="name"><span>Ingrese su nombre completo</span></label>
-                        <input type="name" name="name" id="name" placeholder="Juan Pérez" onChange={onChange}/>
+                        <input type="name" name="displayName" id="name" placeholder="Juan Pérez" onChange={onChange}/>
                     </div>
                     <div className={styles.input}>
                         <label htmlFor="email"><span>Ingrese su correo</span></label>

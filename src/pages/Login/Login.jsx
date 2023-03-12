@@ -6,8 +6,10 @@ import {
     loginWithEmailAndPassword,
     signInWithGoogle,
 } from "../../firebase/auth";
+import { useUserContext } from "../../contexts/UserContext";
 
 export function Login() {
+    const {setUser,user,isLoadingUser,setIsLoadingUser} = useUserContext();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: "",
@@ -34,10 +36,15 @@ export function Login() {
         setFormData((oldData) => ({ ...oldData, [name]: value }));
     };
 
-    const handleGoogleClick = async () => {
-        await signInWithGoogle({
-        onSuccess: () => navigate(MOVIELIST_URL),
+    const handleGoogleClick = async () => { 
+        const result = await signInWithGoogle({
+        onSuccess: () => {
+            navigate(MOVIELIST_URL)
+        },
         });
+        /*setUser(result.user);
+        console.log(result.user);
+        setIsLoadingUser(false);*/
     };
 
     return(
