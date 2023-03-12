@@ -53,16 +53,18 @@ export function MovieList() {
                 </ul>
             </div>
             <div className={style.filaCenter}>
-                <div className={style.buscar} onClick={findMovie}><img src={lupa} alt="Buscar" width={15} /></div>
+                <div className={style.buscar} onClick={findMovie}><i class="fa-solid fa-magnifying-glass"></i></div>
                 <input className={style.input} value={search} onChange={(e) => setSearch(e.target.value)} type="text" />
             </div>
-            <ul className={style.list}>
-                {(peliculas.length === 0)? <Loading /> : <MovieListView peliculas={peliculas} />}
-            </ul>
-            <div className={style.filaCenter}>
-                <div onClick={()=>changePage("back")} className={style.flecha}><img className={style.flecha} src={izquierda} alt="back"  /></div>
+            <div className={style.movieContainer}>
+                <ul className={style.list}>
+                    {(peliculas.length === 0)? <Loading /> : <MovieListView peliculas={peliculas} />}
+                </ul>
+            </div>
+            <div className={style.filaBottom}>
+                <div onClick={()=>changePage("back")} className={style.flecha}><i class="fa-solid fa-angle-left"></i></div>
                 <div className={style.centerN}>{pagina}</div>
-                <div onClick={()=>changePage("next")} className={style.flecha}><img className={style.flecha} src={derecha} alt="next" /></div>
+                <div onClick={()=>changePage("next")} className={style.flecha}><i class="fa-solid fa-angle-right"></i></div>
             </div>
         </div>
     )
