@@ -6,10 +6,13 @@ import {
     registerWithEmailAndPassword,
     signInWithGoogle,
 } from "../../firebase/auth"
+import { useUserContext } from "../../contexts/UserContext";
+import { Loading } from "../../components/Loading/Loading";
 
 export function Register() {
+    const { isLoadingUser } = useUserContext();
     const navigate = useNavigate();
-    const [formData, setData] = useState({});
+    const [formData, setData] = useState({displayName:""});
 
     const onSuccess = () => {
         console.log("REGISTER SUCCESS");
@@ -20,14 +23,37 @@ export function Register() {
         console.log("REGISTER FAILED, Try Again");
     };
 
+    const validateForm = () => {
+         console.log(formData.displayName)
+        if (formData.email.length == 0) {
+            document.getElementById("email").style.border = "2px solid red";
+            return false;
+        }
+        if (formData.password.length < 6) {
+            document.getElementById("password").style.border = "2px solid red"; 
+            return false;
+        }
+        if (!formData.displayName) {
+            document.getElementById("name").style.border = "2px solid red";
+            return false;
+        }
+        return true;
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData);
+        if (!validateForm()) {
+            return;
+        }
+        else{
+             
         await registerWithEmailAndPassword({
         userData: formData,
         onSuccess,
         onFail,
         });
+        }
+       console.log(formData);
     };
 
     const handleGoogleClick = async () => {
@@ -41,6 +67,8 @@ export function Register() {
         [event.target.name]: event.target.value,
         }));
     };
+
+    if(isLoadingUser) return (<Loading></Loading>)
 
     return(
         <div className={styles.container}>
@@ -59,7 +87,7 @@ export function Register() {
                     </div>
                     <div className={styles.input}>
                         <label htmlFor="name"><span>Ingrese su nombre completo</span></label>
-                        <input type="name" name="displayName" id="name" placeholder="Juan Pérez" onChange={onChange}/>
+                        <input type="name" name="displayName" id="name" placeholder="Nombre" onChange={onChange}/>
                     </div>
                     <div className={styles.input}>
                         <label htmlFor="email"><span>Ingrese su correo</span></label>
@@ -69,12 +97,8 @@ export function Register() {
                         <label htmlFor="password"><span>Ingrese su contraseña</span></label>
                         <input type="password" name="password" id="password" placeholder="********" onChange={onChange}/>
                     </div>
-
                     <button type="submit" className={styles.submitBtn} onClick={handleSubmit}>Registrarse</button>
-                    
                     <button type="button" className={styles.googleBtn} onClick={handleGoogleClick}>Registrarse con Google</button>
-
-
                     <Link to={LOGIN_URL} className={styles.redirect}>
                     ¿Ya tines una cuenta? {" "}
                         <span className={styles.txt}>Iniciar Sesión</span>

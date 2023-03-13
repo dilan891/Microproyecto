@@ -6,7 +6,7 @@ import {
     signOut,
     getAdditionalUserInfo,
 } from "firebase/auth";
-import { auth, googleProvider } from "../config";
+import { auth, googleProvider} from "../config";
 import { createUser } from "../users";
   
 export const signInWithGoogle = async ({ onSuccess, onFail }) => {
@@ -60,14 +60,16 @@ export const registerWithEmailAndPassword = async ({
             email,
             password
         );
-        
-        await createUser({
-            ...restData,
-            name: restData.displayName,
-            email,
+    
+        const data = {
             uid: firebaseResult.user.uid,
-        });
+            email: email,
+            displayName: restData.displayName,
+            name: restData.displayName,
+        }
         
+        await createUser(data);
+
         if (onSuccess) {
             console.log("firebaseResult", firebaseResult)
             onSuccess();
