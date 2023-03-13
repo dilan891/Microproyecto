@@ -37,7 +37,7 @@ export function MovieCardDetails(Props) {
   return (
 
     <div className={styled.row}>
-      <span className={styled.close} onClick={Props.close}>&times;</span>
+      
       <div className={styled.column}>
         <div className={styled.card2}>
           <div className={styled.container}>
@@ -54,6 +54,7 @@ export function MovieCardDetails(Props) {
       <div className={styled.column}>
         <div className={styled.card}>
           <div className={styled.container2}>
+            <span className={styled.close} onClick={Props.close}>&times;</span>
             <div className={styled.content}><div></div>
               <h2 className={styled.subTitle}>Géneros</h2>
               <p className={styled.text}>{(!movie.genres)?null:movie.genres.map((genre)=>{
