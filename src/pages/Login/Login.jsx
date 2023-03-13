@@ -20,6 +20,7 @@ export function Login() {
 
     const onFail = (_error) => {
         console.log("LOGIN FAILED, Try Again");
+        alert("se produjo un error al iniciar sesión");
     };
 
     const onSubmit = async (event) => {
@@ -38,6 +39,10 @@ export function Login() {
         onSuccess: () => {
             navigate(MOVIELIST_URL)
         },
+        onFail: (error) => {
+            alert("se produjo un error al iniciar sesión con google");
+            console.log(error);
+        }
         });
     };
 
