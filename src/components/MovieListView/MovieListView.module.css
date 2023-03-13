@@ -1,0 +1,27 @@
+.list_item {
+    /*width: calc(25% - 10px); 4 elementos por fila */
+    /* margin-bottom: 20px; */
+    width: 25%;
+    place-items: center;
+    align-items: center;
+    justify-items: center;
+}
+
+@media (max-width: 1000px) {
+  .list_item {
+    width: 50%; /*1 elementos por fila */
+  }
+}
+
+@media (max-width: 500px){
+  .list_item {
+    width: 100%; /*2 elementos por fila */
+  }
+}
+
+
+
+
+
+
+

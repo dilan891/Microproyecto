@@ -1,0 +1,36 @@
+.icon {
+    color: rgb(16, 189, 16);
+    font-size: 30px;
+}
+
+.icon2 {
+    color: rgb(177, 217, 65);
+    font-size: 30px;
+}
+
+.icon3 {
+    color: rgb(223, 226, 48);
+    font-size: 30px;
+}
+
+.icon4 {
+    color: rgb(230, 146, 20);
+    font-size: 30px;
+}
+
+.icon5 {
+    color: rgb(230, 20, 20);
+    font-size: 30px;
+}
+
+.icon6 {
+    color: rgb(170, 170, 170);
+    font-size: 30px;
+}
+
+
+.text {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    width: 100%;
+}
